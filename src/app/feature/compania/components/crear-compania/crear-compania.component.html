@@ -1,0 +1,49 @@
+<h1>Registrar Compania</h1>
+<h3>Ejemplo validacion de formularios reactivos con directiva</h3>
+<form [formGroup]="companiaForm" (ngSubmit)="cerar()">
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Id:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="idCompania" name="idCompania" placeholder="Id compania" class="form-control"
+        formControlName="id">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Tipo de documento:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="tipodocumentoCompania" name="tipodocumento" placeholder="Tipo de documento compañia"
+        class="form-control" formControlName="tipodocumento">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Número de documento:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="numerodocumentoCompania" name="numerodocumento" placeholder="Numero documento compania"
+        class="form-control" formControlName="numerodocumento">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Razón social:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="razonsocialCompania" name="razonsocial" placeholder="Razon social compania"
+        class="form-control" formControlName="razonsocial">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Analista:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="asesoridCompania" name="asesorid" placeholder="Analista"
+        class="form-control" formControlName="analistaid">
+    </div>
+  </div>
+</form>

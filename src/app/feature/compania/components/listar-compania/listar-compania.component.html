@@ -1,0 +1,9 @@
+<p>listar-compania works!</p>
+
+<div id="companias">
+  <ul class="companias">
+    <li *ngFor="let item of listaCompanias | async">
+      <span>{{item.id}}</span> {{item.tipodocumento}} {{item.numerodocumento}} {{item.razonsocial}}
+    </li>
+  </ul>
+</div>

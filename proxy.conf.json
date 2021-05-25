@@ -1,7 +1,9 @@
 {
   "/prospectos-vida": {
-    "target": "http://192.168.1.115:9002",
-    "logLevel": "debug"
+    "target": "http://localhost:8083",
+    "logLevel": "debug",
+    "secure": false,
+      "changeOrigin": false
   }
 
 }
