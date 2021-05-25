@@ -44,7 +44,8 @@ pipeline {
         stage('Test') {
            steps{
               echo "------------>Testing<------------"
-              sh 'npm run test --browsers ChromeHeadless --progress=false --watch false --code-coverage'
+              echo "npm run test --browsers ChromeHeadless --progress=false --watch false --code-coverage"
+              sh 'npm run test --browsers  --progress=false --watch false --code-coverage'
            }
         }
 
