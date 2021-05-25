@@ -53,6 +53,7 @@ describe('CrearCompaniaComponent', () => {
   });
 
   it('Registrando compania', () => {
+
     expect(component.companiaForm.valid).toBeFalsy();
     component.companiaForm.controls.id.setValue('001');
     component.companiaForm.controls.tipodocumento.setValue('NI');
@@ -60,10 +61,12 @@ describe('CrearCompaniaComponent', () => {
     component.companiaForm.controls.razonsocial.setValue('EMPRESA 1');
     component.companiaForm.controls.analistaid.setValue('1');
     expect(component.companiaForm.valid).toBeTruthy();
-
+//    spyOn(companiaService,'guardar');
     component.cerar();
 
     // Aca validamos el resultado esperado al enviar la petición
     // TODO adicionar expect
+    expect(companiaService.guardar).toHaveBeenCalledTimes(1);
+    expect(component.msg).toBe('Registro exitoso');
   });
 });

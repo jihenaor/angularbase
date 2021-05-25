@@ -14,6 +14,7 @@ const LONGITUD_MAXIMA_PERMITIDA_RAZON_SOCIAL = 80;
 })
 export class CrearCompaniaComponent implements OnInit {
   companiaForm: FormGroup;
+  msg: string;
   constructor(protected companiaServices: CompaniaService) { }
 
   ngOnInit() {
@@ -22,8 +23,21 @@ export class CrearCompaniaComponent implements OnInit {
 
   cerar() {
     this.companiaServices.guardar(this.companiaForm.value);
+    this.msg="Registro exitoso";
   }
+/*
+  async guardar() {
+    try {
+      const resp = await this.companiaServices.post(this.companiaForm.value);
+      if (resp) {
+        this.msg="Registro exitoso";
+      }
+    } catch (err) {
+      this.msg = "Error registrando compania";
+    }
 
+  }
+*/
   private construirFormularioCompania() {
     this.companiaForm = new FormGroup({
       id: new FormControl('', [Validators.required]),
