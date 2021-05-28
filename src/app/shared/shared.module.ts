@@ -14,7 +14,7 @@ import { TrackByPipe } from './pipe/track-by.pipe';
     MensajeErrorCamposDirective,
     MensajeErrorCamposContenedorDirective,
     MensajeErrorCamposSubmitDirective,
-    TrackByPipe
+    TrackByPipe,
   ],
   imports: [ReactiveFormsModule, FormsModule],
   exports: [
@@ -25,7 +25,7 @@ import { TrackByPipe } from './pipe/track-by.pipe';
     MensajeErrorCamposSubmitDirective,
     ReactiveFormsModule,
     FormsModule,
-    TrackByPipe
+    TrackByPipe,
   ]
 })
 export class SharedModule { }

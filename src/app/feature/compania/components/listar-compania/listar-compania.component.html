@@ -1,9 +1,95 @@
-<p>listar-compania works!</p>
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style ">
+                        <li class="breadcrumb-item">
+                            <h4 class="page-title">Listado de empresas</h4>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a routerLink="/">
+                                <i class="fas fa-home"></i> Inicio</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div id="companias">
-  <ul class="companias">
-    <li *ngFor="let item of listaCompanias | async">
-      <span>{{item.id}}</span> {{item.tipodocumento}} {{item.numerodocumento}} {{item.razonsocial}}
-    </li>
-  </ul>
+  <hr>
+  
+  <pre>{{ closeResult }}</pre>
+
+  <p>
+
+  </p>
+
+<div class="container">
+  <!-- end row -->
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="card">
+              <div class="card-body">
+
+                <button type="button" class="btn btn-primary btn-floating" [routerLink]="['/compania/crear']" matTooltip="Nuevo aprendiz">
+                    <i class="fas fa-plus-circle"></i>
+                  </button>
+ 
+                  <div class="table-responsive project-list">
+                      <table class="table project-table table-centered table-nowrap">
+                          <thead>
+                              <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Documento</th>
+                                  <th scope="col">Razon social</th>
+                                  <th scope="col">Analista</th>
+                                  <th scope="col">Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let item of listaCompanias | async; let i = index">
+                                  <th scope="row">{{ i + 1}}</th>
+                                  <td> {{ item.tipodocumento }} {{ item.numerodocumento }}</td>
+                                  <td>
+                                      {{ item.razonsocial}}
+                                  </td>
+                                  <td>
+                                      <div class="team">
+                                          <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Roger Drake">
+                                              <img src="https://therichpost.com/wp-content/uploads/2021/03/avatar{{item.analistaid}}.png" class="rounded-circle avatar-xs" alt="" />
+                                          </a>
+                                      </div>
+                                  </td>
+                                  <td>
+                                      <div class="action">
+                                          <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
+                                          <a class="text-danger" (click)="open(item)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close">
+                                               <i class="fa fa-remove h5 m-0"></i>
+                                            </a>
+                                      </div>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <!-- end project-list -->
+                  <div class="pt-3">
+                      <ul class="pagination justify-content-end mb-0">
+                          <li class="page-item disabled">
+                              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                              <a class="page-link" href="#">Siguiente</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>

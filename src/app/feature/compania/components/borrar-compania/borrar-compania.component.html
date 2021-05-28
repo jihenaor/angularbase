@@ -1,1 +1,10 @@
-<p>borrar-compania works!</p>
+<p>Borrar-compania works!</p>
+
+<div id="companias">
+  <ul class="companias">
+    <li *ngFor="let item of listaCompanias | async">
+      <span>{{item.id}}</span> {{item.tipodocumento}} {{item.numerodocumento}} {{item.razonsocial}}
+      <button (click)="onEliminar(item)">Eliminar</button>
+    </li>
+  </ul>
+</div>

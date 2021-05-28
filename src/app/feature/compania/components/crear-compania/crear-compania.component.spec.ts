@@ -16,7 +16,7 @@ describe('CrearCompaniaComponent', () => {
 
   // beforeEach antes de cada test
   beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({  // 
+    TestBed.configureTestingModule({
       declarations: [ CrearCompaniaComponent ],
       imports: [
         CommonModule,
@@ -31,12 +31,12 @@ describe('CrearCompaniaComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CrearCompaniaComponent);    //Instancia el componente ngOnInit
+    fixture = TestBed.createComponent(CrearCompaniaComponent);    // Instancia el componente ngOnInit
     component = fixture.componentInstance;
     companiaService = TestBed.inject(CompaniaService);
 
-//    SpyOn: característica de Jasmine, permite interceptar dinámicamente las 
-    //llamadas a una función y cambiar su resultado. 
+    // SpyOn: característica de Jasmine, permite interceptar dinámicamente las
+    // Llamadas a una función y cambiar su resultado. 
 
     spyOn(companiaService, 'guardar').and.returnValue(
       of(true)
@@ -68,5 +68,7 @@ describe('CrearCompaniaComponent', () => {
     // TODO adicionar expect
     expect(companiaService.guardar).toHaveBeenCalledTimes(1);
     expect(component.msg).toBe('Registro exitoso');
+    //const compiled = fixture.debugElement.nativeElement;
+    //expect(compiled.querySelector('h3').textContent).toContain('Registro exitoso');
   });
 });

@@ -22,8 +22,10 @@ export class CrearCompaniaComponent implements OnInit {
   }
 
   cerar() {
-    this.companiaServices.guardar(this.companiaForm.value);
-    this.msg="Registro exitoso";
+    if (this.companiaForm.valid) {
+      this.companiaServices.guardar(this.companiaForm.value);
+      this.msg = 'Registro exitoso';
+    }
   }
 /*
   async guardar() {

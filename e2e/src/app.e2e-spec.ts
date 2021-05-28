@@ -8,10 +8,18 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Angular Seed');
+  it('should display titulo de la aplicacion', () => {
+    page.navigateTo('/');
+    expect(page.getText('app-root h1')).toEqual('Cartera');
+    browser.sleep(2000);
   });
+
+  it('should navegate compania', () => {
+    page.navigateTo('/compania');
+    expect(page.getText('app-root h1')).toEqual('Cartera');
+    browser.sleep(2000);
+  });
+
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser

@@ -1,60 +1,44 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from '@core-service/http.service';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Compania } from '../model/compania';
 
+import { HttpErrorResponse } from '@angular/common/http';
+
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class CompaniaService {
 
-  constructor(protected http: HttpService) {}
+  constructor(protected http: HttpClient) {}
 
   public consultar() {
-    return this.http.doGet<Compania[]>(`${environment.endpoint}/companias`, 
-                                                this.http.optsName('consultar companias'));
+    return this.http.get<Compania[]>(`${environment.endpoint}/companias`)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   public guardar(compania: Compania) {
-    return this.http.doPost<Compania, boolean>(`${environment.endpoint}/companias`, compania,
-                                                this.http.optsName('crear/actualizar companias'));
+    return this.http.post<Compania>(`${environment.endpoint}/companias`, compania);
   }
 
   public eliminar(compania: Compania) {
-    return this.http.doDelete<boolean>(`${environment.endpoint}/companias/${compania.id}`,
-                                                this.http.optsName('eliminar companias'));
+    return this.http.delete<boolean>(`${environment.endpoint}/companias/${compania.id}`);
   }
 
-  /*
-  async post(compania: Compania) {
-    const url = `${environment.endpoint}/companias`;
-    const datos = JSON.stringify(compania);
-    let response;
-    try {
-      response = await fetch(url,
-        {
-          method: 'POST',
-          body: datos,
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        });
-    } catch (error) {
-      throw new Error('Se genero un error: ' + error);
-    } finally {
-
-    }
-
-    if (response.ok) {
-      const data = await response.json();
-      return data;
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      console.error('An error occurred:', error.error);
     } else {
-      throw {
-        json: await response.json(),
-        status: response.status,
-        statusText: response.statusText
-      };
-//        throw new Error('Se genero un error: ' + response.statusText);
+      /*
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+        */
     }
+    return throwError('Se ha presentado un error.  Intente de nuevo mas tarde.');
   }
-  */
+
 }

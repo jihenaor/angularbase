@@ -6,17 +6,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CompaniaService } from '../../shared/service/compania.service';
-import { Compania } from '../../shared/model/compania';
 import { HttpService } from 'src/app/core/services/http.service';
+import { CompaniaBuilder } from './companiaBuilder';
 
 describe('ListarCompaniaComponent', () => {
   let component: ListarCompaniaComponent;
   let fixture: ComponentFixture<ListarCompaniaComponent>;
   let companiaService: CompaniaService;
-  const listaCompanias: Compania[] = [
-                            new Compania('1', 'NI', '891480000', 'Compania 1', 1), 
-                            new Compania('2', 'NI', '816001609', 'Compania 2', 1)
-                          ];
+  const listaCompanias = new CompaniaBuilder().build();
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -45,7 +42,6 @@ describe('ListarCompaniaComponent', () => {
     expect(component).toBeTruthy();
     component.listaCompanias.subscribe(resultado => {
       expect(2).toBe(resultado.length);
+    });
   });
-});
-
 });

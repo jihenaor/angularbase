@@ -1,12 +1,13 @@
 export class Compania {
     id: string;
-    tipodocumento: string;;
-    numerodocumento: string;;
-    razonsocial: string;;
+    tipodocumento: string;
+    numerodocumento: string;
+    razonsocial: string;
     analistaid: number;
 
-    constructor(id: string, 
-        tipodocumento: string, 
+    constructor(
+        id: string,
+        tipodocumento: string,
         numerodocumento: string,
         razonsocial: string,
         analistaid: number) {

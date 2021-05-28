@@ -1,55 +1,71 @@
-<h1>Registrar Compania</h1>
-<h3>Ejemplo validacion de formularios reactivos con directiva</h3>
-<form [formGroup]="companiaForm" (ngSubmit)="cerar()">
-  <div class="row">
-    <div class="col-sm-2">
-      <label>Id:</label>
+<section class="content">
+  <div class="container-fluid">
+      <div class="block-header">
+          <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <ul class="breadcrumb breadcrumb-style ">
+                      <li class="breadcrumb-item">
+                          <h4 class="page-title">Registrar Compania</h4>
+                      </li>
+                      <li class="breadcrumb-item bcrumb-1">
+                          <a routerLink="/compania/listar">
+                              <i class="fas fa-home"></i> Listado</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
     </div>
-    <div class="col-sm-4">
-      <input validar type="text" id="idCompania" name="idCompania" placeholder="Id compania" class="form-control"
-        formControlName="id">
-    </div>
+</section>
+
+<div class="container-fluid px-1 py-2 mx-auto">
+  <div class="row d-flex justify-content-center">
+      <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+          <div class="card">            
+            <form [formGroup]="companiaForm" class="form-card" (ngSubmit)="cerar()">
+              <div class="row justify-content-between text-left">
+                <div class="form-group col-sm-6 flex-column d-flex"> 
+                  <label class="form-control-label px-3">Id<span class="text-danger"> *</span></label> 
+                  <input validar type="text" id="idCompania" name="idCompania" placeholder="Id compania" class="form-control"
+                    formControlName="id">
+                </div>
+              </div>
+              <div class="row justify-content-between text-left">
+                <div class="form-group col-sm-6 flex-column d-flex"> 
+                  <label class="form-control-label px-3">Tipo de documento<span class="text-danger"> *</span></label> 
+                  <input validar type="text" id="tipodocumentoCompania" name="tipodocumento" placeholder="Tipo de documento compañia"
+                    class="form-control" formControlName="tipodocumento">
+                </div>
+                <div class="form-group col-sm-6 flex-column d-flex"> 
+                  <label class="form-control-label px-3">Número de documento<span class="text-danger"> *</span></label> 
+                  <input validar type="text" id="numerodocumentoCompania" name="numerodocumento" placeholder="Numero documento compania"
+                    class="form-control" formControlName="numerodocumento">
+                </div>
+              </div>
+              <div class="row justify-content-between text-left">
+                <div class="form-group col-sm-12 flex-column d-flex"> 
+                  <label class="form-control-label px-3">Razón social<span class="text-danger"> *</span></label> 
+                  <input validar type="text" id="razonsocialCompania" name="razonsocial" placeholder="Razon social compania"
+                  class="form-control" formControlName="razonsocial">
+                </div>
+              </div>
+              <div class="row justify-content-between text-left">
+                <div class="form-group col-12 flex-column d-flex"> 
+                  <label class="form-control-label px-3">Analista<span class="text-danger"> *</span></label> 
+                  <input validar type="text" id="analistaidCompania" name="asesorid" placeholder="Analista"
+                  class="form-control" formControlName="analistaid"> 
+                </div>
+              </div>
+              <div class="row justify-content-end">
+                <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Guardar</button> 
+              </div>
+            </div>
+            </form>
+            <div class="row justify-content-between text-left">
+              <h3 id="msg">{{msg}}</h3>
+
+            </div>
+          </div>
+      </div>
   </div>
-  <div class="row">
-    <div class="col-sm-2">
-      <label>Tipo de documento:</label>
-    </div>
-    <div class="col-sm-4">
-      <input validar type="text" id="tipodocumentoCompania" name="tipodocumento" placeholder="Tipo de documento compañia"
-        class="form-control" formControlName="tipodocumento">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-      <label>Número de documento:</label>
-    </div>
-    <div class="col-sm-4">
-      <input validar type="text" id="numerodocumentoCompania" name="numerodocumento" placeholder="Numero documento compania"
-        class="form-control" formControlName="numerodocumento">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-      <label>Razón social:</label>
-    </div>
-    <div class="col-sm-4">
-      <input validar type="text" id="razonsocialCompania" name="razonsocial" placeholder="Razon social compania"
-        class="form-control" formControlName="razonsocial">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-      <label>Analista:</label>
-    </div>
-    <div class="col-sm-4">
-      <input validar type="text" id="asesoridCompania" name="asesorid" placeholder="Analista"
-        class="form-control" formControlName="analistaid">
-    </div>
-  </div>
-  <div class="row">
-    <button type="submit">Guardar</button>
-  </div>
-  <div class="row">
-    <h3 id="msg">{{msg}}</h3>
-  </div>
-</form>
+</div>
