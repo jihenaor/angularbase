@@ -38,7 +38,7 @@ export class CompaniaService {
         `body was: ${error.error}`);
         */
     }
-    return throwError('Se ha presentado un error.  Intente de nuevo mas tarde.');
+    return throwError('Se ha presentado un error.  Intente de nuevo mas tarde.' + error.message);
   }
 
 }

@@ -22,9 +22,10 @@
   
   <pre>{{ closeResult }}</pre>
 
-  <p>
+    <div *ngIf="errorMsg && errorMsg.length > 0" class="alert alert-danger" role="alert">
+        {{ errorMsg }}
+    </div>
 
-  </p>
 
 <div class="container">
   <!-- end row -->

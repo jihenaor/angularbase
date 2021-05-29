@@ -5,6 +5,7 @@ import { CompaniaService } from '@compania/shared/service/compania.service';
 import { Compania } from '@compania/shared/model/compania';
 
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
@@ -59,7 +60,7 @@ export class ListarCompaniaComponent implements OnInit {
 
       this.listaCompanias = this.companiaService.consultar().pipe(
         catchError(error => {
-            this.errorMsg = error.message;
+            this.errorMsg = error;
             return of([]);
         })
     );;
