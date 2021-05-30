@@ -41,9 +41,6 @@ describe('ListarCompaniaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
 
-AAA
-
-
     component.listaCompanias.subscribe(resultado => {
       expect(2).toBe(resultado.length);
     });

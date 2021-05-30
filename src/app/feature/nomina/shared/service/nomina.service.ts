@@ -9,7 +9,7 @@ import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
-export class CompaniaService {
+export class NominaService {
 
   constructor(protected http: HttpClient) {}
 
@@ -25,10 +25,6 @@ export class CompaniaService {
     .pipe(
       catchError(this.handleError)
     );
-  }
-
-  public eliminar(nomina: Nomina) {
-    return this.http.delete<boolean>(`${environment.endpoint}/nominas/${nomina.id}`);
   }
 
   private handleError(error: HttpErrorResponse) {

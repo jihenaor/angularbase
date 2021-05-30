@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { CompaniaService } from '@nomina/shared/service/nomina.service';
+import { NominaService } from '@nomina/shared/service/nomina.service';
 import { Nomina } from '@nomina/shared/model/nomina';
 
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -47,18 +47,18 @@ export class NgbdModalConfirm {
   templateUrl: './listar-nomina.component.html',
   styleUrls: ['./listar-nomina.component.css']
 })
-export class ListarCompaniaComponent implements OnInit {
-  public listaCompanias: Observable<Nomina[]>;
+export class ListarNominaComponent implements OnInit {
+  public listaNominas: Observable<Nomina[]>;
   private nomina: Nomina;
   errorMsg: string;
 
   closeResult = '';
 
-  constructor(private modalService: NgbModal, protected nominaService: CompaniaService) { }
+  constructor(private modalService: NgbModal, protected nominaService: NominaService) { }
 
   ngOnInit() {
 
-      this.listaCompanias = this.nominaService.consultar().pipe(
+      this.listaNominas = this.nominaService.consultar().pipe(
         catchError(error => {
             this.errorMsg = error;
             return of([]);

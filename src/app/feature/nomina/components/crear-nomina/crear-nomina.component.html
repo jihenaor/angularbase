@@ -28,21 +28,21 @@
                 <div class="form-group col-sm-6 flex-column d-flex"> 
                   <label class="form-control-label px-3">Tipo de documento<span class="text-danger"> *</span></label> 
 
-                  <select id="tipodocumentoCompania" name="tipodocumento" placeholder="Tipo de documento compañia"
+                  <select id="tipodocumentoNomina" name="tipodocumento" placeholder="Tipo de documento compañia"
                         class="form-control" formControlName="tipodocumento">
                     <option [value]="td.id" *ngFor="let td of tiposdocumento">{{td.nombre}}</option>
                   </select>
                 </div>
                 <div class="form-group col-sm-6 flex-column d-flex"> 
                   <label class="form-control-label px-3">Número de documento<span class="text-danger"> *</span></label> 
-                  <input validar type="text" id="numerodocumentoCompania" name="numerodocumento" (change)="changeNumerodocumento()" placeholder="Numero documento nomina"
+                  <input validar type="text" id="numerodocumentoNomina" name="numerodocumento" (change)="changeNumerodocumento()" placeholder="Numero documento nomina"
                     class="form-control" formControlName="numerodocumento">
                 </div>
               </div>
               <div class="row justify-content-between text-left">
                 <div class="form-group col-sm-12 flex-column d-flex"> 
                   <label class="form-control-label px-3">Razón social<span class="text-danger"> *</span></label> 
-                  <input validar type="text" id="razonsocialCompania" name="razonsocial" placeholder="Razon social nomina"
+                  <input validar type="text" id="razonsocialNomina" name="razonsocial" placeholder="Razon social nomina"
                   class="form-control" formControlName="razonsocial">
                 </div>
               </div>
@@ -50,7 +50,7 @@
                 <div class="form-group col-12 flex-column d-flex"> 
                   <label class="form-control-label px-3">Analista</label> 
                   
-                  <select id="analistaidCompania" name="analistaid" placeholder="Analista"
+                  <select id="analistaidNomina" name="analistaid" placeholder="Analista"
                                   class="form-control" formControlName="analistaid">
                     <option [value]="analista.id" *ngFor="let analista of analistas">{{analista.nombre}}</option>
                   </select>
@@ -69,7 +69,7 @@
             </form>
             <div class="row justify-content-between text-left">
               <div *ngIf="errorMessage && errorMessage.length > 0" class="alert alert-danger" role="alert">
-                {{ errorMessage }}
+                {{ msg }}
               </div>
             </div>
           </div>

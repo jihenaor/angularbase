@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CompaniaService } from '../../shared/service/nomina.service';
+import { NominaService } from '../../shared/service/nomina.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 const LONGITUD_MINIMA_PERMITIDA_NUMERO_DOCUMENTO = 3;
@@ -12,9 +12,9 @@ const LONGITUD_MAXIMA_PERMITIDA_RAZON_SOCIAL = 80;
   templateUrl: './crear-nomina.component.html',
   styleUrls: ['./crear-nomina.component.css']
 })
-export class CrearCompaniaComponent implements OnInit {
+export class CrearNominaComponent implements OnInit {
   nominaForm: FormGroup;
-  errorMessage: string;
+  msg: string;
   id: string
   analistas=[
     { id: "1", nombre: "Analista 1"},
@@ -27,33 +27,33 @@ export class CrearCompaniaComponent implements OnInit {
     { id: "CC", nombre: "Cédula de ciudadanía"},
   ];
 
-  constructor(protected nominaServices: CompaniaService) { }
+  constructor(protected nominaServices: NominaService) { }
 
   ngOnInit() {
-    this.construirFormularioCompania();
+    this.construirFormularioNomina();
   }
 
   cerar() {
     if (!this.nominaForm.valid) {
-      this.errorMessage = 'Los datos digitados no son validos';
+      this.msg = 'Los datos digitados no son validos';
       return;
     }
     this.nominaServices.guardar(this.nominaForm.value).subscribe({
       next: data => {
           this.id = data.id;
-          this.errorMessage = 'Registro exitoso';
+          this.msg = 'Registro exitoso';
       },
       error: error => {
-        this.errorMessage = error;
+        this.msg = error;
       }
     });
   }
 
   changeNumerodocumento() {
-    this.errorMessage = '';
+    this.msg = '';
   }
 
-  private construirFormularioCompania() {
+  private construirFormularioNomina() {
     this.nominaForm = new FormGroup({
       id: new FormControl('1', [Validators.required]),
       tipodocumento: new FormControl('', [Validators.required]),
