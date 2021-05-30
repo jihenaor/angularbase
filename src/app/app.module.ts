@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from '@home/home.component';
 import { CompaniaModule } from '@compania/compania.module';
+import { NominaModule } from '@nomina/nomina.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,6 +21,7 @@ import { DefaultComponent } from './feature/default/default.component';
     BrowserModule,
     AppRoutingModule,
     CompaniaModule,
+    NominaModule,
     CoreModule,
     NgbModule,
   ],

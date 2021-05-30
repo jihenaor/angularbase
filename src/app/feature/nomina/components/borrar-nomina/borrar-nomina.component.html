@@ -1,0 +1,10 @@
+<p>Borrar-nomina works!</p>
+
+<div id="nominas">
+  <ul class="nominas">
+    <li *ngFor="let item of listaCompanias | async">
+      <span>{{item.id}}</span> {{item.tipodocumento}} {{item.numerodocumento}} {{item.razonsocial}}
+      <button (click)="onEliminar(item)">Eliminar</button>
+    </li>
+  </ul>
+</div>

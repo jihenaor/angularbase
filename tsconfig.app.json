@@ -14,11 +14,11 @@
       "@home/*": [
         "src/app/feature/home/*"
       ],
-      "@producto/*": [
-        "src/app/feature/producto/*"
-      ],
       "@compania/*": [
         "src/app/feature/compania/*"
+      ],
+      "@nomina/*": [
+        "src/app/feature/nomina/*"
       ],
       "@shared/*": [
         "src/app/shared/*"

@@ -8,7 +8,6 @@ import { CompaniaComponent } from './components/compania/compania.component';
 import { SharedModule } from '@shared/shared.module';
 import { CompaniaService } from './shared/service/compania.service';
 
-
 @NgModule({
   declarations: [
     CrearCompaniaComponent,

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Compania } from '../model/compania';
+import { Nomina } from '../model/nomina';
 
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -14,21 +14,21 @@ export class CompaniaService {
   constructor(protected http: HttpClient) {}
 
   public consultar() {
-    return this.http.get<Compania[]>(`${environment.endpoint}/companias`)
+    return this.http.get<Nomina[]>(`${environment.endpoint}/nominas`)
       .pipe(
         catchError(this.handleError)
       );
   }
 
-  public guardar(compania: Compania) {
-    return this.http.post<Compania>(`${environment.endpoint}/companias`, compania)
+  public guardar(nomina: Nomina) {
+    return this.http.post<Nomina>(`${environment.endpoint}/nominas`, nomina)
     .pipe(
       catchError(this.handleError)
     );
   }
 
-  public eliminar(compania: Compania) {
-    return this.http.delete<boolean>(`${environment.endpoint}/companias/${compania.id}`);
+  public eliminar(nomina: Nomina) {
+    return this.http.delete<boolean>(`${environment.endpoint}/nominas/${nomina.id}`);
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -5,10 +5,10 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <ul class="breadcrumb breadcrumb-style ">
                       <li class="breadcrumb-item">
-                          <h2 class="page-title">Registrar Compania</h2>
+                          <h2 class="page-title">Registrar Nomina</h2>
                       </li>
                       <li class="breadcrumb-item bcrumb-1">
-                          <a routerLink="/compania/listar">
+                          <a routerLink="/nomina/listar">
                               <i class="fas fa-home"></i> Listado</a>
                       </li>
                   </ul>
@@ -22,7 +22,7 @@
   <div class="row d-flex justify-content-center">
       <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
           <div class="card">            
-            <form [formGroup]="companiaForm" class="form-card" (ngSubmit)="cerar()">
+            <form [formGroup]="nominaForm" class="form-card" (ngSubmit)="cerar()">
 
               <div class="row justify-content-between text-left">
                 <div class="form-group col-sm-6 flex-column d-flex"> 
@@ -35,14 +35,14 @@
                 </div>
                 <div class="form-group col-sm-6 flex-column d-flex"> 
                   <label class="form-control-label px-3">Número de documento<span class="text-danger"> *</span></label> 
-                  <input validar type="text" id="numerodocumentoCompania" name="numerodocumento" (change)="changeNumerodocumento()" placeholder="Numero documento compania"
+                  <input validar type="text" id="numerodocumentoCompania" name="numerodocumento" (change)="changeNumerodocumento()" placeholder="Numero documento nomina"
                     class="form-control" formControlName="numerodocumento">
                 </div>
               </div>
               <div class="row justify-content-between text-left">
                 <div class="form-group col-sm-12 flex-column d-flex"> 
                   <label class="form-control-label px-3">Razón social<span class="text-danger"> *</span></label> 
-                  <input validar type="text" id="razonsocialCompania" name="razonsocial" placeholder="Razon social compania"
+                  <input validar type="text" id="razonsocialCompania" name="razonsocial" placeholder="Razon social nomina"
                   class="form-control" formControlName="razonsocial">
                 </div>
               </div>
