@@ -19,7 +19,7 @@ import { of } from 'rxjs';
     </button>
   </div>
   <div class="modal-body">
-    <p><strong>Are you sure you want to delete <span class="text-primary">{{ nomina.razonsocial }}</span> profile?</strong></p>
+    <p><strong>Are you sure you want to delete <span class="text-primary">{{ nomina.documentoempleado }}</span> profile?</strong></p>
     <p>All information associated to this user profile will be permanently deleted.
     <span class="text-danger">This operation can not be undone.</span>
     </p>

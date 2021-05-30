@@ -14,7 +14,7 @@ const LONGITUD_MAXIMA_PERMITIDA_RAZON_SOCIAL = 80;
 })
 export class CrearCompaniaComponent implements OnInit {
   companiaForm: FormGroup;
-  errorMessage: string;
+  msg: string;
   id: string
   analistas=[
     { id: "1", nombre: "Analista 1"},
@@ -35,22 +35,22 @@ export class CrearCompaniaComponent implements OnInit {
 
   cerar() {
     if (!this.companiaForm.valid) {
-      this.errorMessage = 'Los datos digitados no son validos';
+      this.msg = 'Los datos digitados no son validos';
       return;
     }
     this.companiaServices.guardar(this.companiaForm.value).subscribe({
       next: data => {
           this.id = data.id;
-          this.errorMessage = 'Registro exitoso';
+          this.msg = 'Registro exitoso';
       },
       error: error => {
-        this.errorMessage = error;
+        this.msg = error;
       }
     });
   }
 
   changeNumerodocumento() {
-    this.errorMessage = '';
+    this.msg = '';
   }
 
   private construirFormularioCompania() {

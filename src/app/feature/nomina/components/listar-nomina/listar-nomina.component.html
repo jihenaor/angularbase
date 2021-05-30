@@ -6,7 +6,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <ul class="breadcrumb breadcrumb-style ">
                         <li class="breadcrumb-item">
-                            <h2 class="page-title">Listado de empresas</h2>
+                            <h2 class="page-title">Listado de nomina</h2>
                         </li>
                         <li class="breadcrumb-item bcrumb-1">
                             <a routerLink="/home/">
@@ -39,33 +39,24 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Documento</th>
-                                <th scope="col">Razon social</th>
-                                <th scope="col">Analista</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Documento Empleado</th>
+                                <th scope="col">Periodo</th>
+                                <th scope="col">Valor</th>
+                                <th scope="col">Compañia ID</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let item of listaNominas | async; let i = index">
                                 <th scope="row">{{ i + 1}}</th>
-                                <td> {{ item.tipodocumento }} {{ item.numerodocumento }}</td>
+                                <td> {{ item.documentoempleado }}</td>
                                 <td>
-                                    {{ item.razonsocial}}
+                                    {{ item.periodo }}
                                 </td>
                                 <td>
-                                    <div class="team">
-                                        <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Roger Drake">
-                                            <img src="https://therichpost.com/wp-content/uploads/2021/03/avatar{{item.analistaid}}.png" class="rounded-circle avatar-xs" alt="" />
-                                        </a>
-                                    </div>
+                                    {{ item.valor}}
                                 </td>
                                 <td>
-                                    <div class="action">
-                                        <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
-                                        <a class="text-danger" (click)="open(item)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close">
-                                             <i class="fa fa-remove h5 m-0"></i>
-                                          </a>
-                                    </div>
+                                    {{ item.companiaid}}
                                 </td>
                             </tr>
                         </tbody>

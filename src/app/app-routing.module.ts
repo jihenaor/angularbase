@@ -14,17 +14,13 @@ const routes: Routes = [{ path: '', component: DefaultComponent,
         {
           path: 'compania',
           loadChildren: () => import('@compania/compania.module').then(mod => mod.CompaniaModule)
+        },
+        {
+          path: 'nomina',
+          loadChildren: () => import('@nomina/nomina.module').then(mod => mod.NominaModule)
         }
       ]
   },
-/*
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]},
-  { path: 'compania', component: CompaniaComponent, canActivate: [SecurityGuard]},
-  */
-  /*
-  { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]},
-  */
 ];
 
 @NgModule({

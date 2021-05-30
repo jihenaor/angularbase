@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { NominaRoutingModule } from './nomina-routing.module';
-import { BorrarNominaComponent } from './components/borrar-nomina/borrar-nomina.component';
 import { ListarNominaComponent } from './components/listar-nomina/listar-nomina.component';
 import { CrearNominaComponent } from './components/crear-nomina/crear-nomina.component';
 import { NominaComponent } from './components/nomina/nomina.component';
@@ -12,7 +11,6 @@ import { NominaService } from './shared/service/nomina.service';
   declarations: [
     CrearNominaComponent,
     ListarNominaComponent,
-    BorrarNominaComponent,
     NominaComponent
   ],
   imports: [
