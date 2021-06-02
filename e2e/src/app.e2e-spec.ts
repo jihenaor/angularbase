@@ -16,7 +16,7 @@ describe('workspace-project App', () => {
 
   it('should navegate compania', () => {
     page.navigateTo('/compania/listar');
-    let c = page.getTextClassName('page-title');
+    const c = page.getTextClassName('page-title');
     c.then(r => {
       expect(r).toEqual('Listado de compañias');
     });
@@ -24,10 +24,10 @@ describe('workspace-project App', () => {
     browser.sleep(2000);
   });
 
-  xit('should navegate nomina', () => {
+  it('should navegate nomina', () => {
 
     page.navigateTo('/nomina/listar');
-    let c = page.getTextClassName('page-title');
+    const c = page.getTextClassName('page-title');
     c.then(r => {
       expect(r).toEqual('Listado de nomina');
     });
@@ -35,16 +35,15 @@ describe('workspace-project App', () => {
     browser.sleep(2000);
   });
 
-  xit('should navegate consulta', () => {
+  it('should navegate consulta', () => {
     page.navigateTo('/consulta/listar');
-    let c = page.getTextClassName('page-title');
+    const c = page.getTextClassName('page-title');
     c.then(r => {
       expect(r).toEqual('Consulta de nómina por compañia');
     });
 
     browser.sleep(2000);
   });
-
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser

@@ -3,7 +3,7 @@ import { NominaService } from '../../shared/service/nomina.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 import { Compania } from '@compania/shared/model/compania';
@@ -23,8 +23,7 @@ export class CrearNominaComponent implements OnInit {
   msg: string;
   id: string;
   public listaCompanias: Observable<Compania[]>;
-
-  constructor(protected nominaServices: NominaService, protected companiaService: CompaniaService) { }
+    constructor(protected nominaServices: NominaService, protected companiaService: CompaniaService) { }
 
   ngOnInit() {
     this.construirFormularioNomina();
@@ -67,7 +66,7 @@ export class CrearNominaComponent implements OnInit {
                               Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_NUMERO_DOCUMENTO)]),
       periodo: new FormControl('', [Validators.required, Validators.maxLength(LONGITUD_PERIODO)]),
       valor: new FormControl('', [Validators.required]),
-      companiaid: new FormControl(''),
+      companiaid: new FormControl('1'),
     });
   }
 }

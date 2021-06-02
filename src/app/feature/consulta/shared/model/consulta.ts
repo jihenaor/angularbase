@@ -13,7 +13,7 @@ export class Consulta {
         tipodocumento: string,
         numerodocumento: string,
         razonsocial: string,
-        analistaid: string,   
+        analistaid: string,
         id: string,
         documentoempleado: string,
         periodo: string,

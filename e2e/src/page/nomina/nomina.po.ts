@@ -41,6 +41,9 @@ export class NominaPage {
     }
 
     async ingresarCompaniaid(companiaidNomina) {
-        await this.inputCompaniaid.sendKeys(companiaidNomina);
+        console.log(companiaidNomina);
+        await this.inputCompaniaid.then(function(options) {
+            options[0].click();
+        });
     }
 }

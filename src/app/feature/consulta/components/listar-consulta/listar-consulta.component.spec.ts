@@ -36,7 +36,7 @@ describe('ListarConsultaComponent', () => {
   xit('should create', () => {
     expect(component).toBeTruthy();
 
-    let consultaService = TestBed.inject(ConsultaService);
+    const consultaService = TestBed.inject(ConsultaService);
     const listaConsultas = new ConsultaBuilder().build();
 
     const myService = spyOn(consultaService, 'consultar').and.returnValue(
@@ -55,13 +55,12 @@ describe('ListarConsultaComponent', () => {
 
     s = TestBed.inject(ConsultaService);
 
-    let myService = spyOn(s, 'consultar').and.returnValue(throwError('Error'));
+    const myService = spyOn(s, 'consultar').and.returnValue(throwError('Error'));
 
     s.consultar().subscribe(() => {
-      fail( 'handleError: expected error..' );
-    }, ( error ) => {
-			expect( error ).toEqual( 'Error' );
-
+      fail('handleError: expected error..');
+    }, (error) => {
+			expect(error).toEqual('Error');
       myService.calls.reset();
 		});
   });

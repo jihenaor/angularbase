@@ -8,7 +8,7 @@ import { map } from 'rxjs/internal/operators/map';
 @Component({
   selector: 'app-borrar-compania',
   templateUrl: './borrar-compania.component.html',
-  styleUrls: ['./borrar-compania.component.css']
+  styleUrls: []
 })
 export class BorrarCompaniaComponent implements OnInit {
   public listaCompanias: Observable<Compania[]>;

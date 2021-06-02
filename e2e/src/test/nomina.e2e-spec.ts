@@ -1,5 +1,4 @@
 import { browser } from 'protractor';
-//import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { NominaPage } from '../page/nomina/nomina.po';
 
@@ -20,7 +19,7 @@ describe('workspace-project compania', () => {
         const VALOR = '1000';
         const COMPANIAID = '1';
 
-        const chars = '0123456789'
+        const chars = '0123456789';
         for (let i = 0; i < 9; i++){
             documentoempleado += chars.charAt(Math.floor(Math.random() * chars.length));
         }

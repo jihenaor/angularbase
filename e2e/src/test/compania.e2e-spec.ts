@@ -1,5 +1,4 @@
 import { browser } from 'protractor';
-//import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { CompaniaPage } from '../page/compania/compania.po';
 
@@ -20,8 +19,8 @@ describe('workspace-project compania', () => {
         const RAZONSOCIAL_COMPANIA = 'COMFA';
         const ANALISTAID_COMPANIA = '1';
 
-        const chars = '0123456789'
-        for (let i = 0; i < 9; i++){
+        const chars = '0123456789';
+        for (let i = 0; i < 9; i++) {
             numerodocumentoCompania += chars.charAt(Math.floor(Math.random() * chars.length));
         }
 
