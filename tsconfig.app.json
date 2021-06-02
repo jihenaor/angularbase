@@ -20,6 +20,9 @@
       "@nomina/*": [
         "src/app/feature/nomina/*"
       ],
+      "@consulta/*": [
+        "src/app/feature/consulta/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]

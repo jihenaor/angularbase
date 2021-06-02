@@ -1,0 +1,76 @@
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="breadcrumb breadcrumb-style ">
+                        <li class="breadcrumb-item">
+                            <h2 class="page-title">Consulta de nómina por compañia</h2>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a routerLink="/home/">
+                                <i class="fas fa-home"></i> Inicio</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div *ngIf="errorMsg && errorMsg.length > 0" class="alert alert-danger" role="alert">
+    {{ errorMsg }}
+</div>
+
+<div class="recent-grid">
+    <div class="projects">
+        <div class="card">
+            <div class="card-header">
+                <h2></h2>
+
+                <button type="button" class="" [routerLink]="['/consulta/crear']">
+                    <i class="fas fa-plus-circle"></i> <span class="las la--arrow-right"></span>
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Documento compania</th>
+                                <th scope="col">Razon social</th>
+                                <th scope="col">Analista ID</th>
+                                <th scope="col">Documento Empleado</th>
+                                <th scope="col">Documento Empleado</th>
+                                <th scope="col">Periodo</th>
+                                <th scope="col">Valor</th>
+                                <th scope="col">Compañia ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of listaConsultas | async; let i = index">
+                                <th scope="row">{{ i + 1}}</th>
+
+                                <td> {{ item.numerodocumento }}</td>
+                                <td> {{ item.razonsocial }}</td>
+                                <td> {{ item.analistaid }}</td>
+
+                                <td>
+                                    {{ item.periodo }}
+                                </td>
+                                <td>
+                                    {{ item.valor}}
+                                </td>
+                                <td>
+                                    {{ item.companiaid}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

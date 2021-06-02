@@ -12,7 +12,7 @@ describe('CrearCompaniaComponent', () => {
   let component: CrearCompaniaComponent;
   let fixture: ComponentFixture<CrearCompaniaComponent>;  // Se usa para extraer las dependencias del componente
   let companiaService: CompaniaService;
-  
+
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CrearCompaniaComponent ],

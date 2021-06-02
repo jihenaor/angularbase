@@ -3,11 +3,11 @@ import { NominaService } from '../../shared/service/nomina.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { CompaniaService } from '@compania/shared/service/compania.service';
-import { Compania } from '@compania/shared/model/compania';
-
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+
+import { Compania } from '@compania/shared/model/compania';
+import { CompaniaService } from '@compania/shared/service/compania.service';
 
 const LONGITUD_MINIMA_PERMITIDA_NUMERO_DOCUMENTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_NUMERO_DOCUMENTO = 16;
@@ -21,7 +21,7 @@ const LONGITUD_PERIODO = 6;
 export class CrearNominaComponent implements OnInit {
   nominaForm: FormGroup;
   msg: string;
-  id: string
+  id: string;
   public listaCompanias: Observable<Compania[]>;
 
   constructor(protected nominaServices: NominaService, protected companiaService: CompaniaService) { }

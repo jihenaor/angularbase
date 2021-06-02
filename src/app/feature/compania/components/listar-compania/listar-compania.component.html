@@ -55,7 +55,7 @@
                                     {{ item.razonsocial}}
                                 </td>
                                 <td>
-                                    <div class="team">
+                                    <div class="team" *ngIf="item.analistaid && item.analistaid !== undefined && item.analistaid !== null">
                                         <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Roger Drake">
                                             <img src="https://therichpost.com/wp-content/uploads/2021/03/avatar{{item.analistaid}}.png" class="rounded-circle avatar-xs" alt="" />
                                         </a>

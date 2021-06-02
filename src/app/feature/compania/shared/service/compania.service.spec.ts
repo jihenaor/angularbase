@@ -27,7 +27,7 @@ describe('CompaniaService', () => {
 
   afterEach(() => {
     httpMock.verify();
-  })
+  });
 
   /*
   it('should be created', () => {
@@ -37,7 +37,7 @@ describe('CompaniaService', () => {
 */
   it('deberia listar companias', () => {
     const listaCompanias = new CompaniaBuilder().build();
-    
+
     httpClientSpy.get.and.returnValue(of(listaCompanias));
 
     companiaService.consultar().subscribe(
@@ -48,11 +48,11 @@ describe('CompaniaService', () => {
   });
 
   it('deberia capturar exception al listar las compañias', () => {
-    const errorResponse = new HttpErrorResponse({ 
+    const errorResponse = new HttpErrorResponse({
       error: 'test 404 error',
       status: 404,
-      statusText: 'Not Found'})
-    
+      statusText: 'Not Found'});
+
     httpClientSpy.get.and.returnValue(throwError(errorResponse));
 
     companiaService.consultar().pipe(
@@ -89,7 +89,7 @@ describe('CompaniaService', () => {
 
     const req = httpMock.expectOne(`${apiEndpointCompanias}/1`);
 
-    expect(req.request.method).toBe('DELETE');    
+    expect(req.request.method).toBe('DELETE');
     // req.event(new HttpResponse<boolean>({body: true}));
   });
 });

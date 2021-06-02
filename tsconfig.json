@@ -36,6 +36,9 @@
       "@compania/*": [
         "src/app/feature/compania/*"
       ],
+      "@consulta/*": [
+        "src/app/feature/consulta/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ]

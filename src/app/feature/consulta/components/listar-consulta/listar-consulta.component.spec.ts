@@ -1,33 +1,33 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of, throwError } from 'rxjs';
 
-import { ListarNominaComponent } from './listar-nomina.component';
+import { ListarConsultaComponent } from './listar-consulta.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NominaService } from '../../shared/service/nomina.service';
-import { NominaBuilder } from './nominaBuilder';
+import { ConsultaService } from '../../shared/service/consulta.service';
+import { ConsultaBuilder } from './consultaBuilder';
 
-describe('ListarNominaComponent', () => {
-  let component: ListarNominaComponent;
-  let fixture: ComponentFixture<ListarNominaComponent>;
+describe('ListarConsultaComponent', () => {
+  let component: ListarConsultaComponent;
+  let fixture: ComponentFixture<ListarConsultaComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ListarNominaComponent],
+      declarations: [ListarConsultaComponent],
       imports: [
         CommonModule,
         HttpClientModule,
         RouterTestingModule
       ],
-      providers: [NominaService]
+      providers: [ConsultaService]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
 
-    fixture = TestBed.createComponent(ListarNominaComponent);
+    fixture = TestBed.createComponent(ListarConsultaComponent);
     component = fixture.componentInstance;
 
     fixture.detectChanges();
@@ -36,26 +36,24 @@ describe('ListarNominaComponent', () => {
   xit('should create', () => {
     expect(component).toBeTruthy();
 
-    let nominaService = TestBed.inject(NominaService);
-    const listaNominas = new NominaBuilder().build();
+    let consultaService = TestBed.inject(ConsultaService);
+    const listaConsultas = new ConsultaBuilder().build();
 
-    const myService = spyOn(nominaService, 'consultar').and.returnValue(
-      of(listaNominas)
+    const myService = spyOn(consultaService, 'consultar').and.returnValue(
+      of(listaConsultas)
     );
 
-    component.listaNominas.subscribe(resultado => {
+    component.listaConsultas.subscribe(resultado => {
       expect(2).toBe(resultado.length);
 
       myService.calls.reset();
     });
-
-
   });
 
   it('should error', () => {
-    let s: NominaService;
+    let s: ConsultaService;
 
-    s = TestBed.inject(NominaService);
+    s = TestBed.inject(ConsultaService);
 
     let myService = spyOn(s, 'consultar').and.returnValue(throwError('Error'));
 

@@ -32,14 +32,14 @@ describe('ListarCompaniaComponent', () => {
 
     fixture.detectChanges();
   });
-  
+
   xit('should create', () => {
     expect(component).toBeTruthy();
 
-    let companiaService= TestBed.inject(CompaniaService);
+    const companiaService = TestBed.inject(CompaniaService);
     const listaCompanias = new CompaniaBuilder().build();
 
-    let myService = spyOn(companiaService, 'consultar').and.returnValue(
+    const myService = spyOn(companiaService, 'consultar').and.returnValue(
       of(listaCompanias)
     );
 
@@ -48,22 +48,18 @@ describe('ListarCompaniaComponent', () => {
 
       myService.calls.reset();
     });
-
-
   });
 
   it('should error', () => {
     let s: CompaniaService;
 
     s = TestBed.inject(CompaniaService);
-
-    let myService = spyOn(s, 'consultar').and.returnValue(throwError('Error'));
+    const myService = spyOn(s, 'consultar').and.returnValue(throwError('Error'));
 
     s.consultar().subscribe(() => {
-      fail( 'handleError: expected error..' );
-    }, ( error ) => {
-			expect( error ).toEqual( 'Error' );
-
+      fail('handleError: expected error..');
+    }, (error) => {
+      expect(error).toEqual('Error');
       myService.calls.reset();
 		});
   });

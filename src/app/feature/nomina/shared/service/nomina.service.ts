@@ -28,7 +28,6 @@ export class NominaService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    debugger;
     if (error.status === 0) {
       console.error('An error occurred:', error.error);
     } else {
@@ -37,7 +36,6 @@ export class NominaService {
           return throwError(error.error.mensaje);
         default:
           return throwError('Se ha presentado un error.  Intente de nuevo mas tarde.' + error.message);
-          
       }
       /*
       console.error(

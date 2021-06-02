@@ -1,40 +1,40 @@
 import { browser } from 'protractor';
 //import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
-import { CompaniaPage } from '../page/compania/compania.po';
+import { NominaPage } from '../page/nomina/nomina.po';
 
 describe('workspace-project compania', () => {
     let page: AppPage;
 //    let navBar: NavbarPage;
-    let compania: CompaniaPage;
+    let compania: NominaPage;
 
     beforeEach(() => {
         page = new AppPage();
 //        navBar = new NavbarPage();
-        compania = new CompaniaPage();
+        compania = new NominaPage();
     });
 
     it('Deberia crear compania', () => {
-        const TIPODOCUMENTO_COMPANIA = 'NI';
-        let numerodocumentoCompania = '';
-        const RAZONSOCIAL_COMPANIA = 'COMFA';
-        const ANALISTAID_COMPANIA = '1';
+        let documentoempleado = '';
+        const PERIODO = '202001';
+        const VALOR = '1000';
+        const COMPANIAID = '1';
 
         const chars = '0123456789'
         for (let i = 0; i < 9; i++){
-            numerodocumentoCompania += chars.charAt(Math.floor(Math.random() * chars.length));
+            documentoempleado += chars.charAt(Math.floor(Math.random() * chars.length));
         }
 
-        page.navigateTo('compania/crear');
+        page.navigateTo('nomina/crear');
 //        navBar.clickBotonCompania();
 //        compania.clickBotonCrearCompanias();
-        compania.ingresarTipodocumento(TIPODOCUMENTO_COMPANIA);
-        compania.ingresarNumerodocumento(numerodocumentoCompania);
-        compania.ingresarRazonsocial(RAZONSOCIAL_COMPANIA);
-        compania.ingresarAnalistaid(ANALISTAID_COMPANIA);
-        compania.clickBotonGuardarcompania();
+        compania.ingresarDocumentoempleado(documentoempleado);
+        compania.ingresarPeriodo(PERIODO);
+        compania.ingresarValor(VALOR);
+        compania.ingresarCompaniaid(COMPANIAID);
+        compania.clickBotonGuardarNomina();
 
-        expect(page.getTextClassName('msg-compania')).toBe('Registro exitoso');
+        expect(page.getTextClassName('msg-nomina')).toBe('Registro exitoso');
 
         browser.sleep(1000);
     });

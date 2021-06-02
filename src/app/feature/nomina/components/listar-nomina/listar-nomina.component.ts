@@ -51,8 +51,6 @@ export class ListarNominaComponent implements OnInit {
 //  private nomina: Nomina;
   errorMsg: string;
 
-  closeResult = '';
-
 // constructor(private modalService: NgbModal, protected nominaService: NominaService) { }
   constructor(protected nominaService: NominaService) { }
 
@@ -63,8 +61,7 @@ export class ListarNominaComponent implements OnInit {
             this.errorMsg = error;
             return of([]);
         })
-    );;
-
+    );
   }
 /*
   open(nomina: Nomina) {

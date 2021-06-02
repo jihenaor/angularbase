@@ -14,7 +14,7 @@ describe('CrearNominaComponent', () => {
   let component: CrearNominaComponent;
   let fixture: ComponentFixture<CrearNominaComponent>;  // Se usa para extraer las dependencias del componente
   let companiaService: NominaService;
-  
+
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CrearNominaComponent ],

@@ -18,6 +18,10 @@ const routes: Routes = [{ path: '', component: DefaultComponent,
         {
           path: 'nomina',
           loadChildren: () => import('@nomina/nomina.module').then(mod => mod.NominaModule)
+        },
+        {
+          path: 'consulta',
+          loadChildren: () => import('@consulta/consulta.module').then(mod => mod.ConsultaModule)
         }
       ]
   },

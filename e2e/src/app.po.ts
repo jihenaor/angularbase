@@ -13,4 +13,8 @@ export class AppPage {
   getTextId(s: string) {
     return element(by.id(s)).getText() as Promise<string>;
   }
+
+  getTextClassName(s: string) {
+    return element(by.className(s)).getText() as Promise<string>;
+  }
 }

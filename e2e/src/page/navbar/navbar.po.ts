@@ -1,10 +1,12 @@
-import { by, element } from 'protractor';
+//import { by, element } from 'protractor';
+import { browser } from 'protractor';
 
 export class NavbarPage {
-    linkHome = element(by.xpath('/html/body/app-root/app-navbar/nav/a[1]'));
-    linkCompania = element(by.xpath('/html/body/app-root/app-navbar/nav/a[2]'));
+//    linkHome = element(by.xpath("a[.='Dashboard']"));
+//    linkCompania = element(by.xpath("span[.='Compañias']"));
 
     async clickBotonCompania() {
-        await this.linkCompania.click();
+//        await this.linkCompania.click();
+        browser.sleep(2000);
     }
 }

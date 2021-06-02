@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, by, element, logging } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -10,13 +10,38 @@ describe('workspace-project App', () => {
 
   it('should display titulo de la aplicacion', () => {
     page.navigateTo('/');
-    expect(page.getText('app-root h1')).toEqual('Cartera');
+    expect(element(by.css('app-root app-default app-sidebar h2')).getText()).toEqual('S. Integrales');
     browser.sleep(2000);
   });
 
   it('should navegate compania', () => {
-    page.navigateTo('/compania');
-    expect(page.getText('app-root h1')).toEqual('Cartera');
+    page.navigateTo('/compania/listar');
+    let c = page.getTextClassName('page-title');
+    c.then(r => {
+      expect(r).toEqual('Listado de compañias');
+    });
+
+    browser.sleep(2000);
+  });
+
+  xit('should navegate nomina', () => {
+
+    page.navigateTo('/nomina/listar');
+    let c = page.getTextClassName('page-title');
+    c.then(r => {
+      expect(r).toEqual('Listado de nomina');
+    });
+
+    browser.sleep(2000);
+  });
+
+  xit('should navegate consulta', () => {
+    page.navigateTo('/consulta/listar');
+    let c = page.getTextClassName('page-title');
+    c.then(r => {
+      expect(r).toEqual('Consulta de nómina por compañia');
+    });
+
     browser.sleep(2000);
   });
 

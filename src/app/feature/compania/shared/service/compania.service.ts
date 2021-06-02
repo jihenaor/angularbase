@@ -46,7 +46,6 @@ export class CompaniaService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    debugger;
     if (error.status === 0) {
       return throwError('Error');
 //      console.error('An error occurred:', error.error);
@@ -56,14 +55,7 @@ export class CompaniaService {
           return throwError(error.error.mensaje);
         default:
           return throwError('Se ha presentado un error.  Intente de nuevo mas tarde.' + error.message);
-          
       }
-      /*
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-        */
     }
   }
-
 }

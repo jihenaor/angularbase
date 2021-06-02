@@ -15,16 +15,16 @@ const LONGITUD_MAXIMA_PERMITIDA_RAZON_SOCIAL = 80;
 export class CrearCompaniaComponent implements OnInit {
   companiaForm: FormGroup;
   msg: string;
-  id: string
-  analistas=[
-    { id: "1", nombre: "Analista 1"},
-    { id: "2", nombre: "Analista 2"},
-    { id: "3", nombre: "Analista 3"},
+  id: string;
+  analistas = [
+    { id: '1', nombre: 'Analista 1'},
+    { id: '2', nombre: 'Analista 2'},
+    { id: '3', nombre: 'Analista 3'},
   ];
 
-  tiposdocumento=[
-    { id: "NI", nombre: "NIT"},
-    { id: "CC", nombre: "Cédula de ciudadanía"},
+  tiposdocumento = [
+    { id: 'NI', nombre: 'NIT'},
+    { id: 'CC', nombre: 'Cédula de ciudadanía'},
   ];
 
   constructor(protected companiaServices: CompaniaService) { }

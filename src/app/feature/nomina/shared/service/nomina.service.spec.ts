@@ -33,7 +33,7 @@ describe('NominaService', () => {
 
   it('deberia listar nominas', () => {
     const listaNominas = new NominaBuilder().build();
-    
+
     httpClientSpy.get.and.returnValue(of(listaNominas));
 
     nominaService.consultar().subscribe(
@@ -44,11 +44,11 @@ describe('NominaService', () => {
   });
 
   it('deberia capturar exception al listar las compañias', () => {
-    const errorResponse = new HttpErrorResponse({ 
+    const errorResponse = new HttpErrorResponse({
       error: 'test 404 error',
       status: 404,
-      statusText: 'Not Found'})
-    
+      statusText: 'Not Found'});
+
     httpClientSpy.get.and.returnValue(throwError(errorResponse));
 
     nominaService.consultar().pipe(
