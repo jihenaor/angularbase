@@ -1,11 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { NominaService } from '../../shared/service/nomina.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+
+import { CompaniaService } from '@compania/shared/service/compania.service';
+import { Compania } from '@compania/shared/model/compania';
+
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 const LONGITUD_MINIMA_PERMITIDA_NUMERO_DOCUMENTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_NUMERO_DOCUMENTO = 16;
-const LONGITUD_MAXIMA_PERMITIDA_RAZON_SOCIAL = 80;
-
+const LONGITUD_PERIODO = 6;
 
 @Component({
   selector: 'app-crear-nomina',
@@ -16,21 +22,22 @@ export class CrearNominaComponent implements OnInit {
   nominaForm: FormGroup;
   msg: string;
   id: string
-  analistas=[
-    { id: "1", nombre: "Analista 1"},
-    { id: "2", nombre: "Analista 2"},
-    { id: "3", nombre: "Analista 3"},
-  ];
+  public listaCompanias: Observable<Compania[]>;
 
-  tiposdocumento=[
-    { id: "NI", nombre: "NIT"},
-    { id: "CC", nombre: "Cédula de ciudadanía"},
-  ];
-
-  constructor(protected nominaServices: NominaService) { }
+  constructor(protected nominaServices: NominaService, protected companiaService: CompaniaService) { }
 
   ngOnInit() {
     this.construirFormularioNomina();
+    this.consultarCompanias();
+  }
+
+  consultarCompanias() {
+    this.listaCompanias = this.companiaService.consultar().pipe(
+      catchError(error => {
+          this.msg = error;
+          return of([]);
+      })
+    );
   }
 
   cerar() {
@@ -49,18 +56,18 @@ export class CrearNominaComponent implements OnInit {
     });
   }
 
-  changeNumerodocumento() {
+  changeDocumentoempleado() {
     this.msg = '';
   }
 
   private construirFormularioNomina() {
     this.nominaForm = new FormGroup({
       id: new FormControl('1', [Validators.required]),
-      tipodocumento: new FormControl('', [Validators.required]),
-      numerodocumento: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_NUMERO_DOCUMENTO),
-                                                             Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_NUMERO_DOCUMENTO)]),
-      razonsocial: new FormControl('', [Validators.required, Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_RAZON_SOCIAL)]),
-      analistaid: new FormControl(''),
+      documentoempleado: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_NUMERO_DOCUMENTO),
+                              Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_NUMERO_DOCUMENTO)]),
+      periodo: new FormControl('', [Validators.required, Validators.maxLength(LONGITUD_PERIODO)]),
+      valor: new FormControl('', [Validators.required]),
+      companiaid: new FormControl(''),
     });
   }
 }

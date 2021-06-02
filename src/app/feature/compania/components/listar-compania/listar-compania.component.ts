@@ -63,8 +63,7 @@ export class ListarCompaniaComponent implements OnInit {
             this.errorMsg = error;
             return of([]);
         })
-    );;
-
+    );
   }
 
   open(compania: Compania) {

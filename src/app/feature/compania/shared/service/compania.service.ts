@@ -10,6 +10,7 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class CompaniaService {
+  public companias = [];
 
   constructor(protected http: HttpClient) {}
 
@@ -19,7 +20,20 @@ export class CompaniaService {
         catchError(this.handleError)
       );
   }
+/*
+  public consultar2() {
+    this.getCompaniasFromApi().subscribe(
+      (companias) => (this.companias = companias),
+      ( ) => {
+        this.companias = undefined;
+        catchError(this.handleError)}
+    );
+  }
 
+  private getCompaniasFromApi(): Observable<Compania[]> {
+    return this.http.get<Compania[]>(`${environment.endpoint}/companias`);
+  }
+*/
   public guardar(compania: Compania) {
     return this.http.post<Compania>(`${environment.endpoint}/companias`, compania)
     .pipe(
