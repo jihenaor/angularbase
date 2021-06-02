@@ -1,5 +1,4 @@
-import { BuilderTemplate } from '../../../../core/testbuilder/builderTemplate';
-
+import { BuilderTemplate } from '@core/testbuilder/builderTemplate';
 import { Compania } from '../../shared/model/compania';
 
 export class CompaniaBuilder extends BuilderTemplate<Compania[]>  {

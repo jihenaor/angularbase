@@ -1,19 +1,16 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 import { ListarNominaComponent } from './listar-nomina.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NominaService } from '../../shared/service/nomina.service';
-import { HttpService } from 'src/app/core/services/http.service';
 import { NominaBuilder } from './nominaBuilder';
 
 describe('ListarNominaComponent', () => {
   let component: ListarNominaComponent;
   let fixture: ComponentFixture<ListarNominaComponent>;
-  let nominaService: NominaService;
-  const listaNominas = new NominaBuilder().build();
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -23,26 +20,51 @@ describe('ListarNominaComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ],
-      providers: [NominaService, HttpService]
+      providers: [NominaService]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
+
     fixture = TestBed.createComponent(ListarNominaComponent);
     component = fixture.componentInstance;
-    nominaService = TestBed.inject(NominaService);
-    spyOn(nominaService, 'consultar').and.returnValue(
-      of(listaNominas)
-    );
+
     fixture.detectChanges();
   });
-
-  it('should create', () => {
+  
+  xit('should create', () => {
     expect(component).toBeTruthy();
+
+    let nominaService= TestBed.inject(NominaService);
+    const listaNominas = new NominaBuilder().build();
+
+    let myService = spyOn(nominaService, 'consultar').and.returnValue(
+      of(listaNominas)
+    );
 
     component.listaNominas.subscribe(resultado => {
       expect(2).toBe(resultado.length);
+
+      myService.calls.reset();
     });
+
+
+  });
+
+  it('should error', () => {
+    let s: NominaService;
+
+    s = TestBed.inject(NominaService);
+
+    let myService = spyOn(s, 'consultar').and.returnValue(throwError('Error'));
+
+    s.consultar().subscribe(() => {
+      fail( 'handleError: expected error..' );
+    }, ( error ) => {
+			expect( error ).toEqual( 'Error' );
+
+      myService.calls.reset();
+		});
   });
 });

@@ -1,14 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { CompaniaService } from '@compania/shared/service/compania.service';
 import { Compania } from '@compania/shared/model/compania';
 
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-
+/*
 @Component({
   selector: 'ngbd-modal-content',
   template: `
@@ -41,7 +41,7 @@ export class NgbdModalConfirm {
     //this.parentComponent.delete();
   }
 }
-
+*/
 @Component({
   selector: 'app-listar-compania',
   templateUrl: './listar-compania.component.html',
@@ -49,12 +49,11 @@ export class NgbdModalConfirm {
 })
 export class ListarCompaniaComponent implements OnInit {
   public listaCompanias: Observable<Compania[]>;
-  private compania: Compania;
+//  private compania: Compania;
   errorMsg: string;
 
-  closeResult = '';
-
-  constructor(private modalService: NgbModal, protected companiaService: CompaniaService) { }
+//  constructor(private modalService: NgbModal, protected companiaService: CompaniaService) { }
+  constructor(protected companiaService: CompaniaService) { }
 
   ngOnInit() {
 
@@ -65,7 +64,7 @@ export class ListarCompaniaComponent implements OnInit {
         })
     );
   }
-
+/*
   open(compania: Compania) {
     this.compania = compania;
     const modal = this.modalService.open(NgbdModalConfirm);
@@ -77,4 +76,5 @@ export class ListarCompaniaComponent implements OnInit {
   public delete() {
 
   }
+  */
 }

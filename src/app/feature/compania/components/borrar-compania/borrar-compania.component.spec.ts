@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CompaniaService } from '../../shared/service/compania.service';
-import { HttpService } from 'src/app/core/services/http.service';
 import { Compania } from '@compania/shared/model/compania';
 
 
@@ -24,7 +23,7 @@ describe('BorrarCompaniaComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ],
-      providers: [CompaniaService, HttpService],
+      providers: [CompaniaService],
     })
     .compileComponents();
   }));

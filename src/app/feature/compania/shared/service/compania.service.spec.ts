@@ -25,6 +25,10 @@ describe('CompaniaService', () => {
     httpMock = injector.inject(HttpTestingController);
   });
 
+  afterEach(() => {
+    httpMock.verify();
+  })
+
   /*
   it('should be created', () => {
     const companiaService: CompaniaService = TestBed.inject(CompaniaService);
@@ -72,7 +76,6 @@ describe('CompaniaService', () => {
     const req = httpMock.expectOne(apiEndpointCompanias);
 
     expect(req.request.method).toBe('POST');
-    httpMock.verify();
     // req.event(new HttpResponse<boolean>({body: true}));
   });
 
@@ -86,8 +89,7 @@ describe('CompaniaService', () => {
 
     const req = httpMock.expectOne(`${apiEndpointCompanias}/1`);
 
-    expect(req.request.method).toBe('DELETE');
-    httpMock.verify();
+    expect(req.request.method).toBe('DELETE');    
     // req.event(new HttpResponse<boolean>({body: true}));
   });
 });

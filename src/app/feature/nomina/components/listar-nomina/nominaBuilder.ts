@@ -1,5 +1,5 @@
-import { BuilderTemplate } from './builderTemplate';
 
+import { BuilderTemplate } from '@core/testbuilder/builderTemplate';
 import { Nomina } from '../../shared/model/nomina';
 
 export class NominaBuilder extends BuilderTemplate<Nomina[]>  {

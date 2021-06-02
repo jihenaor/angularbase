@@ -5,7 +5,7 @@ import { Nomina } from '../model/nomina';
 
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class NominaService {
       );
   }
 
-  public guardar(nomina: Nomina) {
+  public guardar(nomina: Nomina): Observable<any> {
     return this.http.post<Nomina>(`${environment.endpoint}/nominas`, nomina)
     .pipe(
       catchError(this.handleError)

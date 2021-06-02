@@ -1,14 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { NominaService } from '@nomina/shared/service/nomina.service';
-import { Nomina } from '@nomina/shared/model/nomina';
-
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-
+import { Nomina } from '@compania/shared/model/nomina';
+import { NominaService } from '../../shared/service/nomina.service';
+/*
 @Component({
   selector: 'ngbd-modal-content',
   template: `
@@ -41,7 +40,7 @@ export class NgbdModalConfirm {
     //this.parentComponent.delete();
   }
 }
-
+*/
 @Component({
   selector: 'app-listar-nomina',
   templateUrl: './listar-nomina.component.html',
@@ -49,12 +48,13 @@ export class NgbdModalConfirm {
 })
 export class ListarNominaComponent implements OnInit {
   public listaNominas: Observable<Nomina[]>;
-  private nomina: Nomina;
+//  private nomina: Nomina;
   errorMsg: string;
 
   closeResult = '';
 
-  constructor(private modalService: NgbModal, protected nominaService: NominaService) { }
+// constructor(private modalService: NgbModal, protected nominaService: NominaService) { }
+  constructor(protected nominaService: NominaService) { }
 
   ngOnInit() {
 
@@ -66,7 +66,7 @@ export class ListarNominaComponent implements OnInit {
     );;
 
   }
-
+/*
   open(nomina: Nomina) {
     this.nomina = nomina;
     const modal = this.modalService.open(NgbdModalConfirm);
@@ -78,4 +78,5 @@ export class ListarNominaComponent implements OnInit {
   public delete() {
 
   }
+  */
 }

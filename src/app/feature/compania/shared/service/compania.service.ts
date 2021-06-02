@@ -5,7 +5,7 @@ import { Compania } from '../model/compania';
 
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
@@ -34,7 +34,7 @@ export class CompaniaService {
     return this.http.get<Compania[]>(`${environment.endpoint}/companias`);
   }
 */
-  public guardar(compania: Compania) {
+  public guardar(compania: Compania): Observable<any>{
     return this.http.post<Compania>(`${environment.endpoint}/companias`, compania)
     .pipe(
       catchError(this.handleError)
@@ -48,7 +48,8 @@ export class CompaniaService {
   private handleError(error: HttpErrorResponse) {
     debugger;
     if (error.status === 0) {
-      console.error('An error occurred:', error.error);
+      return throwError('Error');
+//      console.error('An error occurred:', error.error);
     } else {
       switch (error.status) {
         case 400:
