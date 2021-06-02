@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  opciones = [
+      {id: 'Dashboard', link: '/home', status: 'active'},
+      {id: 'Compañia', link: '/compania/listar', status: ''}, 
+      {id: 'Nomina', link: '/nomina/listar', status: ''},
+      {id: 'Consulta', link: '/consulta/listar', status: ''}
+    ];
   constructor() { }
 
   ngOnInit(): void {

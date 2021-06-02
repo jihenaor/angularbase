@@ -6,26 +6,13 @@
  
     <div class="sidebar-menu">
         <ul>
-            <li>
-                <a routerLink="/home" class="active">
-                    <span class="las la-igloo"></span>
-                    <span>Dashboard</span></a>
+            <li *ngFor="let opcion of opciones">
+                <a routerLink="{{opcion.link}}" class="{{ opcion.status }}">
+                    <span class="las {{ opcion.icon }}"></span>
+                    <span>{{ opcion.id }}</span></a>
             </li>
-            <li>
-                <a routerLink="/compania/listar" >
-                    <span class="las la-users"></span>
-                    <span>Compañias</span></a>
-            </li>
-            <li>
-                <a routerLink="/nomina/listar" >
-                    <span class="las la-clipboard-list"></span>
-                    <span>Nomina</span></a>
-            </li>
-            <li>
-                <a routerLink="/consulta/listar" >
-                    <span class="las la-shopping-bag"></span>
-                    <span>Consulta</span></a>
-            </li>
+
+
         </ul>
     </div>
 </div>

@@ -3,7 +3,7 @@ import { NominaService } from '../../shared/service/nomina.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { catchError, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 import { Compania } from '@compania/shared/model/compania';
